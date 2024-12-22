@@ -1,7 +1,7 @@
 left = []
 right = []
 
-with open('input.txt', 'r') as file:
+with open("../input.txt", "r") as file:
     for line in file:
         # Clean up the line to split it into two parts
         numbers = line.strip().split()
