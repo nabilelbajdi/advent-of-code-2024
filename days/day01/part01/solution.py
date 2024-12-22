@@ -24,5 +24,9 @@ for left_num, right_num in zip(sorted_left, sorted_right):
     # Add the difference to the list
     differences.append(difference)
 
-# Print differences to verify
-print("Differences:", differences)
+# Calculate the total distance by summing up all differences
+total_distance = sum(differences)
+
+# Print the result
+print("Total Distance:", total_distance)
+
