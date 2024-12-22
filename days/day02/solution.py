@@ -19,8 +19,21 @@ def is_safe(report):
     # A report is safe if it has valid differences and is either increasing or decreasing
     return valid_differences and (increasing or decreasing)
 
-# Count the number of safe reports
-safe_count = sum(1 for report in reports if is_safe(report))
+# Function to check if a report can become safe by removing one level
+def can_be_safe_with_one_removal(report):
+    for i in range(len(report)):
+        # Create a new report with the ith level removed
+        modified_report = report[:i] + report[i+1:]
+        if is_safe(modified_report):
+            return True
+    return False
+
+# Count reports that are safe or can become safe
+safe_count = 0
+
+for report in reports:
+    if is_safe(report) or can_be_safe_with_one_removal(report):
+        safe_count += 1
 
 # Print the result
-print(f"Number of safe reports: {safe_count}")
+print(f"Number of safe reports (with Problem Dampener): {safe_count}")
