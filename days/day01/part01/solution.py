@@ -14,6 +14,15 @@ with open('input.txt', 'r') as file:
 sorted_left = sorted(left)
 sorted_right = sorted(right)
 
-# Print sorted lists to verify
-print("Sorted Left:", sorted_left)
-print("Sorted Right:", sorted_right)
+differences = []
+
+# Use zip to pair elements from both sorted lists
+for left_num, right_num in zip(sorted_left, sorted_right):
+    # Calculate the absolute difference between the pair
+    difference = abs(left_num - right_num)
+    
+    # Add the difference to the list
+    differences.append(difference)
+
+# Print differences to verify
+print("Differences:", differences)
