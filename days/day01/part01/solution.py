@@ -10,5 +10,10 @@ with open('input.txt', 'r') as file:
         left.append(int(numbers[0]))
         right.append(int(numbers[1]))
 
-print("Left:", left)  # Shows all numbers from the first column
-print("Right:", right)  # Shows all numbers from the second column
+# Sort the left and right lists
+sorted_left = sorted(left)
+sorted_right = sorted(right)
+
+# Print sorted lists to verify
+print("Sorted Left:", sorted_left)
+print("Sorted Right:", sorted_right)
