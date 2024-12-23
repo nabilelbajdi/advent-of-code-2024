@@ -18,3 +18,7 @@ for x, y in matches:
     results.append(product)
 
 print(f"First 5 results: {results[:5]}")
+
+# Calculate the total sum of products
+total_sum = sum(results)
+print(f"Total sum of all valid multiplications: {total_sum}")
