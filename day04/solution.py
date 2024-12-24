@@ -28,3 +28,31 @@ DIRECTIONS = [
 
 # Display the directions
 print(f"Defined Search Directions: {DIRECTIONS}")
+
+# Function to check if "XMAS" exists starting from a position
+def find_word(grid, word, start_row, start_col):
+    word_length = len(word)
+    rows = len(grid)
+    cols = len(grid[0])
+
+    for direction in DIRECTIONS:
+        dr = direction[0]
+        dc = direction[1]
+
+        found = True
+        for k in range(word_length):
+            r = start_row + k * dr
+            c = start_col + k * dc
+
+            if r < 0 or r >= rows or c < 0 or c >= cols:
+                found = False
+                break
+
+            if grid[r][c] != word[k]:
+                found = False
+                break
+
+        if found:
+            return True
+
+    return False
