@@ -15,3 +15,6 @@ cols = len(grid[0]) if rows > 0 else 0
 print(f"Grid Dimensions: {rows} x {cols}")
 if rows > 0:
     print(f"First Row: {grid[0]}")
+
+# Define the corner patterns to look for
+CORNER_PATTERNS = ["MSMS", "MMSS", "SSMM", "SMSM"]
