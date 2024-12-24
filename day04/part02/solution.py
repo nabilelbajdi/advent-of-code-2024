@@ -18,3 +18,23 @@ if rows > 0:
 
 # Define the corner patterns to look for
 CORNER_PATTERNS = ["MSMS", "MMSS", "SSMM", "SMSM"]
+
+def count_corner_patterns(grid):
+    """Count occurrences of 'A' with valid corner patterns."""
+    count = 0
+    rows = len(grid)
+    cols = len(grid[0])
+
+    for row in range(1, rows - 1):
+        for col in range(1, cols - 1):
+            if grid[row][col] == "A":
+                corners = [
+                    grid[row - 1][col - 1], # Top left
+                    grid[row - 1][col + 1], # Top right
+                    grid[row + 1][col - 1], # Bottom left
+                    grid[row + 1][col + 1], # Bottom right
+                ]
+
+                if "".join(corners) in CORNER_PATTERNS:
+                    count += 1
+    return count
