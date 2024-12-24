@@ -13,3 +13,18 @@ cols = len(grid[0]) if rows > 0 else 0
 print(f"Grid Dimensions: {rows} x {cols}")
 if rows > 0:
     print(f"First Row: {grid[0]}")
+
+# Step 3: Define directions as (row_step, column_step)
+DIRECTIONS = [
+    (0, 1),   # Horizontal right
+    (0, -1),  # Horizontal left
+    (1, 0),   # Vertical down
+    (-1, 0),  # Vertical up
+    (1, 1),   # Diagonal down right
+    (1, -1),  # Diagonal down left
+    (-1, 1),  # Diagonal up right
+    (-1, -1), # Diagonal up left
+]
+
+# Display the directions
+print(f"Defined Search Directions: {DIRECTIONS}")
