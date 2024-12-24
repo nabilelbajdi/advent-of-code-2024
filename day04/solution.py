@@ -26,33 +26,36 @@ DIRECTIONS = [
     (-1, -1), # Diagonal up left
 ]
 
-# Display the directions
-print(f"Defined Search Directions: {DIRECTIONS}")
-
 # Function to check if "XMAS" exists starting from a position
-def find_word(grid, word, start_row, start_col):
+def find_word(grid, word, start_row, start_col, direction):
     word_length = len(word)
     rows = len(grid)
     cols = len(grid[0])
+    dr, dc = direction
 
-    for direction in DIRECTIONS:
-        dr = direction[0]
-        dc = direction[1]
+    for k in range(word_length):
+        r = start_row + k * dr
+        c = start_col + k * dc
+        if not (0 <= r < rows and 0 <= c < cols) or grid[r][c] != word[k]:
+            return False
+    return True
 
-        found = True
-        for k in range(word_length):
-            r = start_row + k * dr
-            c = start_col + k * dc
+# Function to count occurrences of the word in the grid
+def count_word_occurrences(grid, word):
+    count = 0
+    rows = len(grid)
+    cols = len(grid[0])
 
-            if r < 0 or r >= rows or c < 0 or c >= cols:
-                found = False
-                break
+    for row in range(rows):
+        for col in range(cols):
+            for direction in DIRECTIONS:
+                if find_word(grid, word, row, col, direction):
+                    count += 1
+    return count
 
-            if grid[r][c] != word[k]:
-                found = False
-                break
+# Count all occurrences of "XMAS"
+word_to_find = "XMAS"
+occurrences = count_word_occurrences(grid, word_to_find)
 
-        if found:
-            return True
-
-    return False
+# Display the total occurrences
+print(f"Total occurrences of '{word_to_find}': {occurrences}")
