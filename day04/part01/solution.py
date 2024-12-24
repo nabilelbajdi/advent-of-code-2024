@@ -1,7 +1,7 @@
 # Complete solution for Day 4 Part 1
 
 # Step 1: Read the puzzle input
-with open("input.txt", "r") as file:
+with open("../input.txt", "r") as file:
     puzzle_input = file.read().strip()
 
 # Step 2: Convert the input into a grid (list of rows)
