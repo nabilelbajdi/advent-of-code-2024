@@ -38,3 +38,7 @@ def count_corner_patterns(grid):
                 if "".join(corners) in CORNER_PATTERNS:
                     count += 1
     return count
+
+# Count all occurrences
+occurrences_part2 = count_corner_patterns(grid)
+print(f"Total occurrences of 'A' with matching corner patterns: {occurrences_part2}")
